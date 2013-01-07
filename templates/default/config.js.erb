@@ -1,7 +1,11 @@
 {
   "graphitePort": <%= @graphite_port %>,
   "graphiteHost": "<%= @graphite_host %>",
-  "globalPrefix": "<%= @global_prefix %>",
+  "graphite":
+    {
+      "legacyNamespace": <%= @graphite_legacy_namespace %>,
+      "globalPrefix": "<%= @graphite_global_prefix %>"
+    },
   "address": "<%= @address %>",
   "port": <%= @port %>,
   "flushInterval": <%= @flush_interval %>

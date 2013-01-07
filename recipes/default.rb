@@ -16,12 +16,13 @@ template "#{node["statsd"]["conf_dir"]}/config.js" do
   mode "0644"
   source "config.js.erb"
   variables(
-    :address        => node["statsd"]["address"],
-    :port           => node["statsd"]["port"],
-    :flush_interval => node["statsd"]["flush_interval"],
-    :graphite_port  => node["statsd"]["graphite_port"],
-    :graphite_host  => node["statsd"]["graphite_host"],
-    :global_prefix  => node["statsd"]["global_prefix"]
+    :address                   => node["statsd"]["address"],
+    :port                      => node["statsd"]["port"],
+    :flush_interval            => node["statsd"]["flush_interval"],
+    :graphite_port             => node["statsd"]["graphite_port"],
+    :graphite_host             => node["statsd"]["graphite_host"],
+    :graphite_legacy_namespace => node["statsd"]["graphite"]["legacyNamespace"],
+    :graphite_global_prefix    => node["statsd"]["graphite"]["globalPrefix"]
   )
   notifies :restart, "service[statsd]"
 end
